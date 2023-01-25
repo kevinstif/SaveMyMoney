@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import com.smw.budget.mapping.BudgetMapper;
 import com.smw.budget.mapping.DistributionMapper;
 import com.smw.budget.mapping.TagMapper;
+import com.smw.record.domain.model.entity.Report;
 import com.smw.record.mapping.BillMapper;
+import com.smw.record.mapping.ReportMapper;
 
 @Configuration("Configuration")
 public class MappingConfiguration {
@@ -31,5 +33,9 @@ public class MappingConfiguration {
 
     @Bean BudgetMapper budgetMapper(){
         return new BudgetMapper();
+    }
+
+    @Bean ReportMapper reportMapper(){
+        return new ReportMapper();
     }
 }

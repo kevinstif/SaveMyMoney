@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.smw.budget.domain.model.entity.Budget;
 import com.smw.budget.domain.persistence.BudgetRepository;
 import com.smw.budget.domain.service.BudgetService;
+import com.smw.budget.domain.service.DistributionService;
 import com.smw.shared.exception.ResourceNotFoundException;
 import com.smw.shared.exception.ResourceValidationException;
 
@@ -21,10 +22,13 @@ public class BudgetServiceImpl implements BudgetService {
     private static final String ENTITY = "Budget";
     private final BudgetRepository repository;
     private final Validator validator;
+    private final DistributionService distributionService;
 
-    public BudgetServiceImpl(BudgetRepository repository, Validator validator) {
+    public BudgetServiceImpl(BudgetRepository repository, Validator validator,
+            DistributionService distributionService) {
         this.repository = repository;
         this.validator = validator;
+        this.distributionService = distributionService;
     }
 
     @Override
@@ -44,6 +48,9 @@ public class BudgetServiceImpl implements BudgetService {
 
         if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
+
+        if (distributionService.getById(request.getDistribution().getId())==null)
+            throw new ResourceNotFoundException(ENTITY, request.getDistribution().getId());
 
         return repository.save(request);
     }

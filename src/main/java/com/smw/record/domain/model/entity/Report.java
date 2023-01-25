@@ -1,6 +1,4 @@
-package com.smw.budget.domain.model.entity;
-
-import java.util.List;
+package com.smw.record.domain.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,13 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.smw.record.domain.model.entity.Bill;
-import com.smw.record.domain.model.entity.Report;
+import com.smw.budget.domain.model.entity.Budget;
+import com.smw.budget.domain.model.entity.Tag;
 import com.smw.shared.domain.model.entity.AuditModel;
 
 import lombok.AllArgsConstructor;
@@ -30,30 +27,35 @@ import lombok.With;
 @NoArgsConstructor
 @With
 @Entity
-@Table(name = "tags")
-public class Tag extends AuditModel {
+@Table(name = "reports")
+public class Report  extends AuditModel{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     @NotNull
+    @NotBlank
     private String name;
 
     @NotNull
-    private String description;
+    private Double totalCost;
 
     @NotNull
-    private Double percent;
+    private Double monthlyExpenditure;
+
+    @NotNull
+    private Double monthlyBudget;
+
+    @NotNull
+    private Double monthlySaving;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "distribution_id", nullable = true)
-    private Distribution distribution;
+    @JoinColumn(name = "tag_id", nullable = true)
+    private Tag tag;
 
-    @OneToMany(mappedBy = "tag")
-    private List<Bill> bills;
-
-    @OneToMany(mappedBy = "tag")
-    private List<Report> reports;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "budget_id", nullable = true)
+    private Budget budget;
+    
 }
