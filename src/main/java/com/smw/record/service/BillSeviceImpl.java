@@ -1,4 +1,4 @@
-package com.smw.budget.service;
+package com.smw.record.service;
 
 import java.util.List;
 import java.util.Set;
@@ -8,11 +8,12 @@ import javax.validation.Validator;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import com.smw.budget.domain.model.entity.Bill;
-import com.smw.budget.domain.persistence.BillRepository;
-import com.smw.budget.domain.service.BillService;
+
 import com.smw.budget.domain.service.BudgetService;
 import com.smw.budget.domain.service.TagService;
+import com.smw.record.domain.model.entity.Bill;
+import com.smw.record.domain.persistence.BillRepository;
+import com.smw.record.domain.service.BillService;
 import com.smw.shared.exception.ResourceNotFoundException;
 import com.smw.shared.exception.ResourceValidationException;
 

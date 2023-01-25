@@ -1,9 +1,10 @@
-package com.smw.budget.domain.service;
+package com.smw.record.domain.service;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import com.smw.budget.domain.model.entity.Bill;
+
+import com.smw.record.domain.model.entity.Bill;
 
 public interface BillService {
     List<Bill> getAllByTagIdAndBudgetId(Long tagId, Long budgetId);

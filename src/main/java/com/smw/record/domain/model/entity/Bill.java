@@ -1,4 +1,4 @@
-package com.smw.budget.domain.model.entity;
+package com.smw.record.domain.model.entity;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.smw.budget.domain.model.entity.Budget;
+import com.smw.budget.domain.model.entity.Tag;
 import com.smw.shared.domain.model.entity.AuditModel;
 import com.smw.shared.domain.model.valueObjects.Money;
 

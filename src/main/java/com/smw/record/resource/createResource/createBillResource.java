@@ -1,4 +1,4 @@
-package com.smw.budget.resource.createResources;
+package com.smw.record.resource.createResource;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

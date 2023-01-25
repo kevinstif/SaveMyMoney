@@ -1,4 +1,4 @@
-package com.smw.budget.api;
+package com.smw.record.api;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.smw.budget.domain.service.BillService;
-import com.smw.budget.mapping.BillMapper;
-import com.smw.budget.resource.createResources.createBillResource;
-import com.smw.budget.resource.resource.BillResource;
+import com.smw.record.domain.service.BillService;
+import com.smw.record.mapping.BillMapper;
+import com.smw.record.resource.createResource.createBillResource;
+import com.smw.record.resource.resource.BillResource;
 
 @CrossOrigin(origins = "*", methods = {
         RequestMethod.GET,

@@ -1,11 +1,11 @@
-package com.smw.budget.domain.persistence;
+package com.smw.record.domain.persistence;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.smw.budget.domain.model.entity.Bill;
+import com.smw.record.domain.model.entity.Bill;
 
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Long> {

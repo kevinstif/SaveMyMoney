@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.smw.record.domain.model.entity.Bill;
 import com.smw.shared.domain.model.entity.AuditModel;
 import com.smw.shared.domain.model.valueObjects.Money;
 

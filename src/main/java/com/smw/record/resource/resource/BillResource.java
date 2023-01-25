@@ -1,4 +1,4 @@
-package com.smw.budget.resource.resource;
+package com.smw.record.resource.resource;
 
 import com.smw.shared.domain.model.valueObjects.Money;
 
