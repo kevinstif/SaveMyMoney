@@ -39,9 +39,6 @@ public class Report  extends AuditModel{
     private String name;
 
     @NotNull
-    private Double totalCost;
-
-    @NotNull
     private Double monthlyExpenditure;
 
     @NotNull

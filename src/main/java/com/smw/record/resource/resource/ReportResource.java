@@ -8,7 +8,6 @@ import lombok.Setter;
 public class ReportResource {
     private Long id;
     private String name;
-    private Double totalCost;
     private Double monthlyExpenditure;
     private Double monthlyBudget;
     private Double monthlySaving;
