@@ -47,11 +47,11 @@ public class ReportServiceImpl implements ReportService {
         return incomeTotal * percent / 100;
     }
 
-    private String generateName(String tagName){
+    private String generateName(String tagName) {
         return tagName + " report";
     }
 
-    //This function generates a report based on a tag and a budget
+    // This function generates a report based on a tag and a budget
     private Report generateReport(Tag tag, Budget budget) {
 
         String name = generateName(tag.getName());
@@ -72,7 +72,7 @@ public class ReportServiceImpl implements ReportService {
 
     }
 
-    //It creates a report for each tag in a budget
+    // It creates a report for each tag in a budget
     @Override
     public void createReports(Budget budget) {
 
@@ -92,10 +92,17 @@ public class ReportServiceImpl implements ReportService {
 
         Set<ConstraintViolation<Report>> violations = validator.validate(request);
 
-        if ( !violations.isEmpty())
+        if (!violations.isEmpty())
             throw new ResourceValidationException(ENTITY, violations);
 
         return repository.save(request);
+    }
+
+    @Override
+    public Report getByBudgetIdAndTagId(Long budgetId, Long tagId) {
+        return repository.findByBudgetIdAndTagId(budgetId, tagId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        ENTITY + "with budget id: " + budgetId + "and tagId: " + tagId + " not found"));
     }
 
 }

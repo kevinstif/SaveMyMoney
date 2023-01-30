@@ -15,12 +15,12 @@ import com.smw.record.mapping.ReportMapper;
 import com.smw.record.resource.resource.ReportResource;
 
 @CrossOrigin(origins = "*", methods = {
-    RequestMethod.GET
+        RequestMethod.GET
 })
 @RestController
 @RequestMapping("api/v1/reports")
 public class ReportController {
-    
+
     @Autowired
     private ReportService service;
 
@@ -35,5 +35,11 @@ public class ReportController {
     @GetMapping("/{id}")
     public ReportResource getById(@PathVariable("id") Long id) {
         return mapper.toResource(service.getById(id));
+    }
+
+    @GetMapping("/budget/{budgetId}/tag/{tagId}")
+    public ReportResource getByBudgetIdAndTagId(@PathVariable("budgetId") Long budgetId,
+            @PathVariable("tagId") Long tagId) {
+        return mapper.toResource(service.getByBudgetIdAndTagId(budgetId, tagId));
     }
 }
