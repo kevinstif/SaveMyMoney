@@ -54,5 +54,10 @@ public class Report  extends AuditModel{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "budget_id", nullable = true)
     private Budget budget;
+
+    public void addExpense(Double cost){
+        this.monthlyExpenditure += cost;
+        this.monthlySaving -= cost;
+    }
     
 }

@@ -105,4 +105,13 @@ public class ReportServiceImpl implements ReportService {
                         ENTITY + "with budget id: " + budgetId + "and tagId: " + tagId + " not found"));
     }
 
+    @Override
+    public Report update(Report request){
+        Set<ConstraintViolation<Report>> violations = validator.validate(request);
+
+        if (!violations.isEmpty())
+            throw new ResourceValidationException(ENTITY, violations);
+        
+        return  repository.save(request);
+    }
 }

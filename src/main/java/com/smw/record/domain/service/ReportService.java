@@ -11,4 +11,5 @@ public interface ReportService {
     Report getByBudgetIdAndTagId(Long budgetId, Long tagId);
     void createReports(Budget budget);
     Report create(Report request);
+    Report update(Report request);
 }
