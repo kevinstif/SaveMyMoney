@@ -1,4 +1,4 @@
-package com.smw.security.config;
+package com.smw.security.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,8 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.smw.security.filter.JWTAuthenticationFilter;
-import com.smw.security.filter.JWTAuthorizationFilter;
+import com.smw.security.security.filter.JWTAuthenticationFilter;
+import com.smw.security.security.filter.JWTAuthorizationFilter;
 
 import lombok.AllArgsConstructor;
 
@@ -32,14 +32,13 @@ public class WebSecurityConfig {
         jwtAuthenticationFilter.setFilterProcessesUrl("/api/v1/users/auth/login");
 
         return http
+                .cors().disable()
                 .csrf().disable()
                 .authorizeRequests().antMatchers("/api/v1/users/auth/register",
                         "/swagger-ui/**", "/api-docs/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
-                .and()
-                .httpBasic()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

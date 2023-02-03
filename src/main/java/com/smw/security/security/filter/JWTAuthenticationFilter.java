@@ -1,4 +1,4 @@
-package com.smw.security.filter;
+package com.smw.security.security.filter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -12,8 +12,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smw.security.domain.model.entity.AuthCredentials;
-import com.smw.security.middleware.TokenUtils;
-import com.smw.security.middleware.UserDetailsImpl;
+import com.smw.security.security.middleware.TokenUtils;
+import com.smw.security.security.middleware.UserDetailsImpl;
 
 import java.io.IOException;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.smw.security.middleware;
+package com.smw.security.security.middleware;
 
 import java.util.Collection;
 import java.util.Collections;

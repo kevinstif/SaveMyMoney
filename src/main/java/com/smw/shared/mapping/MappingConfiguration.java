@@ -9,6 +9,7 @@ import com.smw.budget.mapping.TagMapper;
 import com.smw.record.domain.model.entity.Report;
 import com.smw.record.mapping.BillMapper;
 import com.smw.record.mapping.ReportMapper;
+import com.smw.security.mapping.UserMapper;
 
 @Configuration("Configuration")
 public class MappingConfiguration {
@@ -37,5 +38,9 @@ public class MappingConfiguration {
 
     @Bean ReportMapper reportMapper(){
         return new ReportMapper();
+    }
+
+    @Bean UserMapper userMapper(){
+        return new UserMapper();
     }
 }

@@ -1,4 +1,4 @@
-package com.smw.security.filter;
+package com.smw.security.security.filter;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.smw.security.middleware.TokenUtils;
+import com.smw.security.security.middleware.TokenUtils;
 
 @Component
 public class JWTAuthorizationFilter extends OncePerRequestFilter {

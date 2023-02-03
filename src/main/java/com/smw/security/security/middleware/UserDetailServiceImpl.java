@@ -1,4 +1,4 @@
-package com.smw.security.middleware;
+package com.smw.security.security.middleware;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
