@@ -8,4 +8,5 @@ import lombok.Setter;
 public class DistributionResource {
     private Long id;
     private String name;
+    private Long userId;
 }

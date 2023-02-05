@@ -1,12 +1,18 @@
 package com.smw.security.domain.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.smw.budget.domain.model.entity.Budget;
+import com.smw.budget.domain.model.entity.Distribution;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,5 +52,11 @@ public class User {
     @NotNull
     @NotBlank
     private String lastName;
+
+    @OneToMany(mappedBy = "user")
+    private List<Budget> budgets;
+
+    @OneToMany(mappedBy = "user")
+    private List<Distribution> distributions;
     
 }

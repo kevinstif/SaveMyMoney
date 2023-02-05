@@ -38,12 +38,12 @@ public class DsitributionController {
     @Autowired
     DistributionMapper mapper;
 
-    @GetMapping
-    public List<DistributionResource> getAll(){
-        return mapper.modelListToResource(service.getAll());
+    @GetMapping("/user/{userId}")
+    public List<DistributionResource> getAll(@PathVariable("userId") Long userId){
+        return mapper.modelListToResource(service.getAll(userId));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public DistributionResource getById(@PathVariable("id") Long id){
         return mapper.toResource(service.getById(id));
     }
@@ -54,12 +54,12 @@ public class DsitributionController {
         return mapper.toResource(service.create(mapper.toModel(resource)));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public DistributionResource update(@PathVariable("id") Long id, CreateDistributionResource resource){
         return mapper.toResource(service.update(id, mapper.toModel(resource)));
     }
 
-    @DeleteMapping({"id"})
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id){
         return service.delete(id);
     }

@@ -22,4 +22,6 @@ public class BudgetResource {
 
     private Long distributionId;
 
+    private Long userId;
+
 }

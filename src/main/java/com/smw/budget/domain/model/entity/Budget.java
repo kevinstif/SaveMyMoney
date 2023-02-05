@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 
 import com.smw.record.domain.model.entity.Bill;
 import com.smw.record.domain.model.entity.Report;
+import com.smw.security.domain.model.entity.User;
 import com.smw.shared.domain.model.entity.AuditModel;
 import com.smw.shared.domain.model.valueObjects.Money;
 
@@ -57,6 +58,10 @@ public class Budget extends AuditModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "distribution_id", nullable = true)
     private Distribution distribution;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
     
     @OneToMany(mappedBy = "budget")
     private List<Bill> bills;

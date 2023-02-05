@@ -16,5 +16,8 @@ public class CreateDistributionResource {
     @NotNull
     private String name;
 
+    @NotNull
+    private Long userId;
+
     List<CreateTagResource> tags;
 }

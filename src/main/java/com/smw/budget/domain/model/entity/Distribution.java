@@ -3,14 +3,18 @@ package com.smw.budget.domain.model.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.smw.security.domain.model.entity.User;
 import com.smw.shared.domain.model.entity.AuditModel;
 
 import lombok.AllArgsConstructor;
@@ -41,5 +45,9 @@ public class Distribution extends AuditModel {
 
     @OneToMany(mappedBy = "distribution")
     private List<Budget> budgets;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
 }

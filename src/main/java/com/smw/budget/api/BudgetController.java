@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = "*", methods = {
         RequestMethod.GET,
@@ -38,9 +37,9 @@ public class BudgetController {
     @Autowired
     private BudgetMapper mapper;
 
-    @GetMapping
-    public List<BudgetResource> getAll() {
-        return mapper.modelListToResource(service.getAll());
+    @GetMapping("user/{userId}")
+    public List<BudgetResource> getAll(@PathVariable("userId") Long userId) {
+        return mapper.modelListToResource(service.getAll(userId));
     }
 
     @GetMapping("/{id}")

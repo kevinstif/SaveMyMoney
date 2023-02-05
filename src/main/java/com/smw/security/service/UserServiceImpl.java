@@ -37,4 +37,9 @@ public class UserServiceImpl implements UserService {
         return repository.save(user.withPassword(passwordEncoded));
     }
 
+    @Override
+    public boolean exits(Long userId) {
+        return repository.existsById(userId);
+    }
+
 }

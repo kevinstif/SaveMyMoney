@@ -15,6 +15,7 @@ import com.smw.budget.domain.persistence.BudgetRepository;
 import com.smw.budget.domain.service.BudgetService;
 import com.smw.budget.domain.service.DistributionService;
 import com.smw.record.domain.service.ReportService;
+import com.smw.security.domain.service.UserService;
 import com.smw.shared.exception.ResourceNotFoundException;
 import com.smw.shared.exception.ResourceValidationException;
 
@@ -26,18 +27,22 @@ public class BudgetServiceImpl implements BudgetService {
     private final Validator validator;
     private final DistributionService distributionService;
     private final ReportService reportService;
+    private final UserService userService;
 
     public BudgetServiceImpl(BudgetRepository repository, Validator validator, DistributionService distributionService,
-            ReportService reportService) {
+            ReportService reportService, UserService userService) {
         this.repository = repository;
         this.validator = validator;
         this.distributionService = distributionService;
         this.reportService = reportService;
+        this.userService = userService;
     }
 
     @Override
-    public List<Budget> getAll() {
-        return repository.findAll();
+    public List<Budget> getAll(Long userId) {
+        if (!userService.exits(userId))
+            throw new ResourceNotFoundException("User", userId);
+        return repository.findByUserId(userId);
     }
 
     @Override

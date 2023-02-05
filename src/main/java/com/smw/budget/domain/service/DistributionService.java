@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import com.smw.budget.domain.model.entity.Distribution;
 
 public interface DistributionService {
-    List<Distribution> getAll();
+    List<Distribution> getAll(Long userId);
 
     Distribution getById(Long id);
 

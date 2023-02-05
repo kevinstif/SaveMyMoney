@@ -15,6 +15,7 @@ import com.smw.budget.domain.model.entity.Tag;
 import com.smw.budget.domain.persistence.DistributionRepository;
 import com.smw.budget.domain.service.DistributionService;
 import com.smw.budget.domain.service.TagService;
+import com.smw.security.domain.service.UserService;
 import com.smw.shared.exception.ResourceNotFoundException;
 import com.smw.shared.exception.ResourceValidationException;
 
@@ -25,16 +26,21 @@ public class DistributionServiceImpl implements DistributionService {
     private final DistributionRepository repository;
     private final Validator validator;
     private final TagService tagService;
+    private final UserService userService;
 
-    public DistributionServiceImpl(DistributionRepository repository, Validator validator, TagService tagService) {
+    public DistributionServiceImpl(DistributionRepository repository, Validator validator, TagService tagService,
+            UserService userService) {
         this.repository = repository;
         this.validator = validator;
         this.tagService = tagService;
+        this.userService = userService;
     }
 
     @Override
-    public List<Distribution> getAll() {
-        return repository.findAll();
+    public List<Distribution> getAll(Long userId) {
+        if (!userService.exits(userId))
+            throw new ResourceNotFoundException("User", userId);
+        return repository.findByUserId(userId);
     }
 
     @Override

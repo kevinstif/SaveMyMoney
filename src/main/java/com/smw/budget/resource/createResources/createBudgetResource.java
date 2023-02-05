@@ -32,4 +32,7 @@ public class createBudgetResource {
 
     @NotNull
     private Long distributionId;
+
+    @NotNull 
+    private Long userId;
 }
