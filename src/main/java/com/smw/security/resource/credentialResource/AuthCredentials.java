@@ -1,4 +1,4 @@
-package com.smw.security.domain.model.entity;
+package com.smw.security.resource.credentialResource;
 
 import lombok.Data;
 

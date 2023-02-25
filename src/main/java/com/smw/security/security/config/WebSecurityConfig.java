@@ -29,12 +29,11 @@ public class WebSecurityConfig {
 
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/api/v1/users/auth/login");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
 
         return http
-                .cors().disable()
                 .csrf().disable()
-                .authorizeRequests().antMatchers("/api/v1/users/auth/register",
+                .authorizeRequests().antMatchers("/api/v1/users/auth/**",
                         "/swagger-ui/**", "/api-docs/**")
                 .permitAll()
                 .anyRequest()

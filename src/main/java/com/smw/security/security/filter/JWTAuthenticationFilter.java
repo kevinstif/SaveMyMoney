@@ -11,7 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smw.security.domain.model.entity.AuthCredentials;
+import com.smw.security.resource.credentialResource.AuthCredentials;
 import com.smw.security.security.middleware.TokenUtils;
 import com.smw.security.security.middleware.UserDetailsImpl;
 
